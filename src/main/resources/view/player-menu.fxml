@@ -1,47 +1,47 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import com.jfoenix.controls.JFXComboBox?>
-<?import com.jfoenix.controls.JFXSlider?>
-<?import javafx.scene.control.Button?>
+<?import com.jfoenix.controls.JFXButton?>
 <?import javafx.scene.control.Label?>
-<?import javafx.scene.control.ProgressBar?>
-<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="162.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.playerMainMenu">
-   <children>
-      <Label alignment="CENTER" prefHeight="70.0" prefWidth="601.0" text="MP3 Player">
-         <font>
-            <Font size="31.0" />
-         </font>
-      </Label>
-      <ProgressBar fx:id="proMusic" layoutX="1.0" layoutY="78.0" prefHeight="7.0" prefWidth="601.0" progress="0.0" />
-      <Button layoutX="1.0" layoutY="119.0" mnemonicParsing="false" onAction="#btnPlayOnAction" prefHeight="43.0" prefWidth="83.0" text="PLAY">
-         <font>
-            <Font name="System Bold" size="17.0" />
-         </font>
-      </Button>
-      <Button layoutX="95.0" layoutY="119.0" mnemonicParsing="false" onAction="#btnPauseOnAction" prefHeight="43.0" prefWidth="83.0" text="PAUSE">
-         <font>
-            <Font name="System Bold" size="17.0" />
-         </font>
-      </Button>
-      <Button fx:id="btnReset" layoutX="194.0" layoutY="119.0" mnemonicParsing="false" onAction="#btnResetOnAction" prefHeight="43.0" prefWidth="83.0" text="RESET">
-         <font>
-            <Font name="System Bold" size="17.0" />
-         </font>
-      </Button>
-      <Button layoutX="291.0" layoutY="119.0" mnemonicParsing="false" onAction="#btnPreviousOnAction" prefHeight="43.0" prefWidth="83.0" text="PREVIOUS">
-         <font>
-            <Font name="System Bold" size="13.0" />
-         </font>
-      </Button>
-      <Button fx:id="btnNext" layoutX="392.0" layoutY="119.0" mnemonicParsing="false" onAction="#btnNextOnAction" prefHeight="43.0" prefWidth="83.0" text="NEXT">
-         <font>
-            <Font name="System Bold" size="13.0" />
-         </font>
-      </Button>
-      <JFXComboBox fx:id="cmbSpeed" layoutX="499.0" layoutY="119.0" onAction="#cmbSpeedOnAction" prefHeight="43.0" prefWidth="96.0" promptText="SPEED" />
-      <JFXSlider fx:id="sldrVol" layoutX="449.0" layoutY="93.0" max="200.0" value="100.0" />
-   </children>
-</AnchorPane>
+
+<BorderPane fx:controller="controller.playerMainMenu" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1">
+   <center>
+      <VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0" BorderPane.alignment="CENTER">
+         <children>
+            <Label text="Simple Music Player">
+               <font>
+                  <Font size="43.0" />
+               </font>
+            </Label>
+            <Label fx:id="lblChooseMusic" onMouseClicked="#chooseMusic" text="choose Your Music">
+               <font>
+                  <Font size="21.0" />
+               </font>
+            </Label>
+            <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" spacing="10.0">
+               <children>
+                  <JFXButton onMouseClicked="#play" text="Play">
+                     <font>
+                        <Font size="26.0" />
+                     </font>
+                  </JFXButton>
+                  <JFXButton onMouseClicked="#pause" text="Pause">
+                     <font>
+                        <Font size="26.0" />
+                     </font>
+                  </JFXButton>
+                  <JFXButton onMouseClicked="#stop" text="Stop">
+                     <font>
+                        <Font size="26.0" />
+                     </font>
+                  </JFXButton>
+               </children>
+            </HBox>
+         </children>
+      </VBox>
+   </center>
+</BorderPane>

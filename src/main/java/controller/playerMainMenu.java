@@ -1,42 +1,50 @@
 package controller;
 
-import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.scene.control.ProgressBar;
+import javafx.scene.control.Label;
+import javafx.scene.input.MouseEvent;
+import javafx.scene.media.Media;
+import javafx.scene.media.MediaPlayer;
+import javafx.stage.FileChooser;
+import java.io.File;
 
-public class playerMainMenu {
+public class playerMainMenu  {
 
     @FXML
-    private ProgressBar proMusic;
+    private Label lblChooseMusic;
+    private MediaPlayer mediaPlayer;
 
     @FXML
-    void btnNextOnAction(ActionEvent event) {
+    void chooseMusic(MouseEvent event) {
+        FileChooser chooser = new FileChooser();
+        chooser.setTitle("Select your music");
+        File file = chooser.showOpenDialog(null);
+        if(file!=null){
+            String selectedFile = file.toURI().toString();
+            Media media = new Media(selectedFile);
+            mediaPlayer = new MediaPlayer(media);
+            mediaPlayer.setOnReady(()->{
+                lblChooseMusic.setText(file.getName());
+            });
+        }
+
+
 
     }
 
     @FXML
-    void btnPauseOnAction(ActionEvent event) {
-
+    void pause(MouseEvent event) {
+        mediaPlayer.pause();
     }
 
     @FXML
-    void btnPlayOnAction(ActionEvent event) {
-
+    void play(MouseEvent event) {
+        mediaPlayer.play();
     }
 
     @FXML
-    void btnPreviousOnAction(ActionEvent event) {
-
-    }
-
-    @FXML
-    void btnResetOnAction(ActionEvent event) {
-
-    }
-
-    @FXML
-    void cmbSpeedOnAction(ActionEvent event) {
-
+    void stop(MouseEvent event) {
+        mediaPlayer.stop();
     }
 
 }
