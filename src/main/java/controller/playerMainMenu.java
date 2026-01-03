@@ -70,4 +70,11 @@ public class playerMainMenu  {
             musicPrograss.setProgress(0);
         });
     }
+
+    public void next(MouseEvent mouseEvent) {
+
+    }
+
+    public void previous(MouseEvent mouseEvent) {
+    }
 }
